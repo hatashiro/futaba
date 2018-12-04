@@ -1,7 +1,8 @@
 import Vue from 'vue'
 
 export const state = () => ({
-  showFirstPixel: true
+  showFirstPixel: true,
+  showGraph: false
 })
 
 export const actions = {

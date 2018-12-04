@@ -1,6 +1,7 @@
 <template>
   <div>
     <setting/>
+    <graph/>
     <container>
       <im
         v-for="({ id, src }, idx) in images"
@@ -14,6 +15,7 @@
 <script>
 import Setting from '~/components/Setting'
 import Container from '~/components/Container'
+import Graph from '~/components/Graph'
 import Im from '~/components/Image'
 import { createPixelImage } from '~/libs/image'
 
@@ -25,6 +27,7 @@ export default {
   components: {
     Setting,
     Container,
+    Graph,
     Im
   },
 
@@ -40,6 +43,10 @@ export default {
     }
 
     return { images }
+  },
+
+  created() {
+    this.$store.dispatch('eval/clear')
   }
 }
 </script>

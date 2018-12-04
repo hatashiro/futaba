@@ -1,11 +1,17 @@
 <template>
   <div id="setting">
-    <p>
+    <div>
       <input
         v-model="showFirstPixel"
         type="checkbox">
       Show the first pixel RGB
-    </p>
+    </div>
+    <div>
+      <input
+        v-model="showGraph"
+        type="checkbox">
+      Show graph
+    </div>
     <button @click="clearEvaluation">Clear evaluation</button>
   </div>
 </template>
@@ -24,7 +30,8 @@ const computedSetting = key => ({
 
 export default {
   computed: {
-    showFirstPixel: computedSetting('showFirstPixel')
+    showFirstPixel: computedSetting('showFirstPixel'),
+    showGraph: computedSetting('showGraph')
   },
 
   methods: {
