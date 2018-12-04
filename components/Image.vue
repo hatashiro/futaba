@@ -70,15 +70,15 @@ export default {
       this.intersectionObserver = new IntersectionObserver(
         entries => entries.forEach(this.onIntersection),
         {
-          threshold: 1.0
+          threshold: 0.2
         }
       )
 
       this.intersectionObserver.observe(this.$refs.image)
     },
 
-    onIntersection({ isIntersecting }) {
-      if (isIntersecting && !this.eval) {
+    onIntersection({ isIntersecting, time }) {
+      if (!isIntersecting && !this.eval && time > 2000) {
         this.evaluateImage(0)
       }
     }
