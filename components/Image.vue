@@ -6,7 +6,7 @@
       class="card-img-top">
     <div class="card-body">
       <p class="card-text">
-        {{ pixelText }}
+        <template v-if="setting.showFirstPixel">{{ pixelText }}</template>
       </p>
       <button
         :class="`btn${this.eval > 0 ? '' : '-outline'}-success`"
@@ -45,6 +45,10 @@ export default {
 
     eval() {
       return this.$store.state.eval.evaluation[this.id]
+    },
+
+    setting() {
+      return this.$store.state.setting
     }
   },
 

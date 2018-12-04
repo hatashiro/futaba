@@ -23,11 +23,20 @@ export const actions = {
   evaluate({ commit, dispatch }, { id, val }) {
     commit('setEvaluation', { id, val })
     dispatch('sync')
+  },
+
+  clear({ commit, dispatch }) {
+    commit('clearEvaluation')
+    dispatch('sync')
   }
 }
 
 export const mutations = {
   setEvaluation(state, { id, val }) {
     Vue.set(state.evaluation, id, val)
+  },
+
+  clearEvaluation(state) {
+    state.evaluation = {}
   }
 }
