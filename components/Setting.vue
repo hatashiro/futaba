@@ -18,7 +18,6 @@ const computedSetting = key => ({
     return this.$store.state.setting[key]
   },
   set(value) {
-    console.log(value)
     this.$store.dispatch('setting/set', { key, value })
   }
 })

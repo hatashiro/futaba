@@ -53,10 +53,8 @@ export default {
   },
 
   async mounted() {
-    this.rgbs = await getRGBs(this.$refs.image)
-    console.log('RGBs', this.rgbs)
-
     this.installIntersectionObserver()
+    this.rgbs = await getRGBs(this.$refs.image)
   },
 
   methods: {
