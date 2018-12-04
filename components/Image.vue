@@ -9,13 +9,9 @@
         {{ pixelText }}
       </p>
       <button
-        :class="plusBtnClass"
+        :class="`btn${this.eval > 0 ? '' : '-outline'}-success`"
         class="btn btn-sm"
-        @click="evaluateImage(+1)">👍</button>
-      <button
-        :class="minusBtnClass"
-        class="btn btn-sm"
-        @click="evaluateImage(-1)">👎</button>
+        @click="evaluateImage(1)">👍よさげ</button>
     </div>
   </div>
 </template>
@@ -49,20 +45,14 @@ export default {
 
     eval() {
       return this.$store.state.eval.evaluation[this.id]
-    },
-
-    plusBtnClass() {
-      return `btn${this.eval > 0 ? '' : '-outline'}-success`
-    },
-
-    minusBtnClass() {
-      return `btn${this.eval < 0 ? '' : '-outline'}-danger`
     }
   },
 
   async mounted() {
     this.rgbs = await getRGBs(this.$refs.image)
     console.log('RGBs', this.rgbs)
+
+    this.installIntersectionObserver()
   },
 
   methods: {
@@ -70,6 +60,23 @@ export default {
 
     evaluateImage(val) {
       this.evaluate({ id: this.id, val })
+    },
+
+    installIntersectionObserver() {
+      this.intersectionObserver = new IntersectionObserver(
+        entries => entries.forEach(this.onIntersection),
+        {
+          threshold: 1.0
+        }
+      )
+
+      this.intersectionObserver.observe(this.$refs.image)
+    },
+
+    onIntersection({ isIntersecting }) {
+      if (isIntersecting && !this.eval) {
+        this.evaluateImage(0)
+      }
     }
   }
 }
