@@ -14,9 +14,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [
-      { src: '/js/3rd_party/plotly.js' }
-    ]
+    script: [{ src: '/js/3rd_party/plotly.js' }]
   },
 
   /*
