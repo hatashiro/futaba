@@ -118,6 +118,6 @@ export default {
   height: 600px;
   background-color: white;
   z-index: 99;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 </style>
