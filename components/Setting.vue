@@ -12,6 +12,15 @@
         type="checkbox">
       Show graph
     </div>
+    <div>
+      <input
+        v-model="applyFilter"
+        type="checkbox">
+      Apply filter by:
+      <input
+        v-model="filterBy"
+        size="5">
+    </div>
     <button @click="clearEvaluation">Clear evaluation</button>
   </div>
 </template>
@@ -31,7 +40,9 @@ const computedSetting = key => ({
 export default {
   computed: {
     showFirstPixel: computedSetting('showFirstPixel'),
-    showGraph: computedSetting('showGraph')
+    showGraph: computedSetting('showGraph'),
+    applyFilter: computedSetting('applyFilter'),
+    filterBy: computedSetting('filterBy')
   },
 
   methods: {

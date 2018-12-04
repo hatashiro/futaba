@@ -2,7 +2,9 @@ import Vue from 'vue'
 
 export const state = () => ({
   showFirstPixel: true,
-  showGraph: false
+  showGraph: false,
+  applyFilter: false,
+  filterBy: 0
 })
 
 export const actions = {
@@ -13,6 +15,9 @@ export const actions = {
 
 export const mutations = {
   set(state, { key, value }) {
+    if (typeof state[key] === 'number') {
+      value = parseFloat(value) || 0
+    }
     Vue.set(state, key, value)
   }
 }
