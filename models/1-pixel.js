@@ -3,8 +3,8 @@ import * as tf from '@tensorflow/tfjs'
 export default class Model {
   constructor() {
     this.meta = {
-      learningRate: 0.1,
-      epochs: 100
+      learningRate: 0.3,
+      epochs: 30
     }
 
     const layers = [
