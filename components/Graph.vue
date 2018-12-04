@@ -68,7 +68,7 @@ export default {
   },
 
   methods: {
-    createData({ name, data, symbol }) {
+    createData({ name, data, symbol, size }) {
       return {
         name,
         x: data.map(([r]) => r),
@@ -77,7 +77,7 @@ export default {
         mode: 'markers',
         marker: {
           symbol,
-          size: 6,
+          size,
           opacity: 0.8
         },
         type: 'scatter3d'
@@ -92,12 +92,14 @@ export default {
           this.createData({
             name: 'positive',
             data: positive,
-            symbol: 'circle'
+            symbol: 'circle',
+            size: 6
           }),
           this.createData({
             name: 'negative',
             data: negative,
-            symbol: 'cross'
+            symbol: 'x',
+            size: 3
           })
         ],
         this.graphLayout
