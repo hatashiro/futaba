@@ -40,7 +40,7 @@ export default {
 
   computed: {
     pixelText() {
-      return this.rgbs ? `${this.rgbs[0]} ${this.rgbs[1]} ${this.rgbs[2]}` : ''
+      return this.rgbs ? `R${this.rgbs[0]}G${this.rgbs[1]}B${this.rgbs[2]}` : ''
     },
 
     eval() {
