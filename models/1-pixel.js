@@ -3,13 +3,14 @@ import * as tf from '@tensorflow/tfjs'
 export default class Model {
   constructor() {
     this.meta = {
-      learningRate: 0.3,
-      epochs: 30
+      learningRate: 1,
+      epochs: 3
     }
 
     const layers = [
-      tf.layers.dense({ inputShape: [3], units: 3, activation: 'sigmoid' }),
-      tf.layers.dense({ units: 1, activation: 'sigmoid' })
+      // tf.layers.dense({ inputShape: [3], units: 3, activation: 'sigmoid' }),
+      // tf.layers.dense({ units: 1, activation: 'sigmoid' })
+      tf.layers.dense({ inputShape: [3], units: 1, activation: 'sigmoid' })
     ]
 
     this.model = tf.sequential({ layers })
