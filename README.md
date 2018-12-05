@@ -1,6 +1,6 @@
 # futaba
 
-Twitter image personalization with TensorFlow.js
+Image personalization with TensorFlow.js
 
 ## Build Setup
 

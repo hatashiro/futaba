@@ -1,7 +1,7 @@
 {
   "name": "futaba",
   "version": "0.0.0",
-  "description": "Twitter image personalization with TensorFlow.js",
+  "description": "Image personalization with TensorFlow.js",
   "author": "Jun <me@noraesae.net>",
   "private": true,
   "scripts": {
