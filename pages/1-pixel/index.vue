@@ -20,7 +20,7 @@ import Container from '~/components/Container'
 import Graph from '~/components/Graph'
 import Im from '~/components/Image'
 import { createPixelImage } from '~/libs/image'
-import Model from '~/models/1-pixel'
+import SigmoidRegSGD from '~/models/SigmoidRegSGD'
 
 function randomColor() {
   return Math.floor(256 * Math.random())
@@ -51,7 +51,7 @@ export default {
   data() {
     return {
       images: createData(50),
-      model: new Model()
+      model: new SigmoidRegSGD()
     }
   },
 
