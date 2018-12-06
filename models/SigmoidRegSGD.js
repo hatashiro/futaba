@@ -2,7 +2,7 @@ import * as tf from '@tensorflow/tfjs'
 
 export default class Model {
   constructor() {
-    this.meta = {
+    this.hyper = {
       learningRate: 1,
       epochs: 3
     }
@@ -15,7 +15,7 @@ export default class Model {
 
     this.model = tf.sequential({ layers })
 
-    const sgd = tf.train.sgd(this.meta.learningRate)
+    const sgd = tf.train.sgd(this.hyper.learningRate)
     this.model.compile({ optimizer: sgd, loss: 'binaryCrossentropy' })
 
     this.updated = 0
@@ -35,7 +35,7 @@ export default class Model {
       const [x, y, batchSize] = this.fitQueue.shift()
       await this.model.fit(x, y, {
         batchSize,
-        epochs: this.meta.epochs
+        epochs: this.hyper.epochs
       })
       this.updated = Date.now()
     }
