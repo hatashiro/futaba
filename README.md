@@ -1,6 +1,4 @@
-# futaba
-
-Image personalization with TensorFlow.js
+TensorFlow.js Example for Color Personalization
 
 ## Build Setup
 
